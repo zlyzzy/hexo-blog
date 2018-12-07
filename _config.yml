@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: zhangly912
+title: zlyzzy's Blog
 subtitle:
 description:
 keywords:
@@ -79,5 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git 
-  repository: https://github.com/zhangly912/zhangly912.github.io.git
+  repository: https://github.com/zlyzzy/zlyzzy.github.io.git
   branch: master 
