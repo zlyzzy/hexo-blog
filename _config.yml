@@ -4,12 +4,14 @@
 
 # Site
 title: zlyzzy's Blog
-subtitle:
-description:
+subtitle: 你若安好，便是晴天
+description: 你若安好，便是晴天
 keywords:
-author: sum
-language:
+author:  zlyzzy
+language: zh-Hans
 timezone:
+avatar: '/images/head.jpeg'
+
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -56,7 +58,15 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  React: react
+  Vue: vue
+  node: node
+  nomal: nomal
 tag_map:
+  React: react
+  Vue: vue
+  node: node
+  nomal: nomal
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -73,7 +83,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

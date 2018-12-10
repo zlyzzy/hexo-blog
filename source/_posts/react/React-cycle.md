@@ -1,5 +1,7 @@
 ---
 title: React 生命周期函数
+tags: React
+categories: React
 ---
 
 一、初始化阶段
