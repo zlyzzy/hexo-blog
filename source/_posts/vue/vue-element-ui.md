@@ -4,7 +4,11 @@ tags: Vue
 categories: Vue
 ---
 
-``` 
+element-ui tree 节点过滤加载对应子节点方法,官网例子，不会返回过滤节点
+的子节点，这也是总结这篇博客的原因。
+
+
+```
 //官网例子
 <el-input
   placeholder="输入关键字进行过滤"
