@@ -117,8 +117,11 @@ filterNode(value,data,node) {
 
 //优化之后的代码 不管有几级都可以适用
 filterNode(value,data,node) {
+  if(!value){
+    return true;
+  }
   let level = node.level;
-  let _array = [];
+  let _array = [];//这里使用数组存储 只是为了存储值。
   this.getReturnNode(node,_array,value);
   let result = false;
   _array.forEach((item)=>{
@@ -127,11 +130,53 @@ filterNode(value,data,node) {
   return result;
 },
 getReturnNode(node,_array,value){
-  _array.push(node.data &&  node.data.label && node.data.label.indexOf(value) !== -1);
-  if(node.parent){
-    this.getReturnNode(node.parent,_array,value);
-  }
+ let isPass = node.data &&  node.data.ruleName && node.data.ruleName.indexOf(value) !== -1;
+ isPass?_array.push(isPass):'';
+ this.index++;
+ console.log(this.index)
+ if(!isPass && node.level!=1 && node.parent){
+  this.getReturnNode(node.parent,_array,value);
+ }
 }
+
+
+//如果不明白上面的写法 可以看下面详解的写法 
+
+
+ // 触发页面显示配置的筛选
+      filterNode(value, data, node) {
+        // 如果什么都没填就直接返回
+        if (!value) return true;
+        // 如果传入的data和node.data中的ruleCode相同说明是匹配到了
+        if (data.ruleName.indexOf(value) !== -1) {
+          return true;
+        }
+        // 否则要去判断它是不是选中节点的子节点
+        return this.checkBelongToChooseNode(value, data, node);
+      },
+      // 判断传入的节点是不是选中节点的子节点
+      checkBelongToChooseNode(value, data, node) {
+        const level = node.level;
+        // 如果传入的节点本身就是一级节点就不用校验了
+        if (level === 1) {
+          return false;
+        }
+        // 先取当前节点的父节点
+        let parentData = node.parent;
+        // 遍历当前节点的父节点
+        let index = 0;
+        while (index < level - 1) {
+          // 如果匹配到直接返回
+          if (parentData.data.ruleName.indexOf(value) !== -1) {
+            return true;
+          }
+          // 否则的话再往上一层做匹配
+          parentData = parentData.parent;
+          index ++;
+        }
+        // 没匹配到返回false
+        return false;
+      },
 
 
 ``` 
